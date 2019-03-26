@@ -12,26 +12,26 @@
   "scripts": {
     "build": "rm -r lib || true && babel src -d lib",
     "lint": "eslint src",
-    "test": "npm run-script build && jest tests/** --verbose && mocha tests --require babel-register --recursive",
+    "test": "npm run-script build && jest tests/** --verbose",
     "test:watch": "SOURCE_DIR=src mocha tests --watch --recursive --require babel-register tests"
   },
   "dependencies": {
-    "ajv": "^4.11.8",
+    "ajv": "^6.10.0",
     "esprima": "^4.0.1",
     "jsonpointer": "^4.0.1",
-    "requireindex": "^1.1.0"
+    "requireindex": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/register": "^7.4.0",
-    "babel-cli": "^6.24.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-espower": "^2.4.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-espower": "^3.0.1",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "eslint": "~3.9.1",
-    "mocha": "^3.2.0"
+    "eslint": "~5.15.3",
+    "jest": "^24.5.0"
   },
   "engines": {
     "node": ">=5"
