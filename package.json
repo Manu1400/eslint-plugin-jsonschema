@@ -1,13 +1,13 @@
 {
-  "name": "@Manu1400/eslint-plugin-jsonschema",
-  "version": "0.3.0",
+  "name": "@manu1400/eslint-plugin-jsonschema",
+  "version": "0.3.2",
   "description": "eslint plugin for jsonschema",
   "keywords": [
     "eslint",
     "eslintplugin",
     "eslint-plugin"
   ],
-  "author": "okitakunio@gmail.com",
+  "author": "emmanuel.haguet@laposte.net",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -r lib || true && babel src -d lib",

@@ -14,13 +14,13 @@ You'll first need to install [ESLint](http://eslint.org):
 $ npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-jsonschema`:
+Next, install `@manu1400/eslint-plugin-jsonschema`:
 
 ```
-$ npm install eslint-plugin-jsonschema --save-dev
+$ npm install @manu1400/eslint-plugin-jsonschema --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-jsonschema` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `@manu1400/eslint-plugin-jsonschema` globally.
 
 ## Usage
 
