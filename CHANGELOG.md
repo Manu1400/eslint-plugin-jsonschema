@@ -1,4 +1,8 @@
-trying to update this package
+## [0.3.0] - 26 march 2019
+
+* change support to Node >= 5
+* simplify build
+* DEV: add support for Jest
 
 ## [0.2.0] - 2017-06-26
 

@@ -2,7 +2,7 @@
 
 const { eslintPluginJsonschema } = require("./import_helper")
 
-const assert = require("power-assert")
+const assert = require("assert")
 
 describe("eslint-plugin-jsonschema", () => {
   it("exports processor of json", () => {
