@@ -3,9 +3,7 @@
 const { ast } = require("./import_helper")
 let { calculateJsonPointer } = ast
 
-//const { assert } = require("power-assert")
 const assert = require('assert');
-
 const { parse } = require("esprima")
 
 const getNodeWithParent = (root, items) => {

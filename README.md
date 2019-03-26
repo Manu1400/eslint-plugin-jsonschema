@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Manu1400/eslint-plugin-jsonschema.svg?branch=master)](https://travis-ci.org/Manu1400/eslint-plugin-jsonschema)
+
 # eslint-plugin-jsonschema
 
 eslint plugin for jsonschema

@@ -1,7 +1,6 @@
 "use strict"
 
 const { rules } = require("../import_helper")
-let rule = rules.json
 
 const { RuleTester } = require("eslint")
 let ruleTester = new RuleTester()
@@ -21,7 +20,7 @@ let inValidJsons = [
   { code: '{\n"a": 0,\n}', errors: [ { message: "Unexpected token } in JSON at position 10", line: 3, column: 1 } ] }, // 10 + 1 - 2 - 8
 ]
 
-ruleTester.run("jsonschema/json", rule, {
+ruleTester.run("jsonschema/json", rules.json, {
   // XXX:
   valid: validJsons.map(text => "var json = " + text),
   invalid: inValidJsons.map(invalid => Object.assign(invalid, { code: "var json = " + invalid.code }))
