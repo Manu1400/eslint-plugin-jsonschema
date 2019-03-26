@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-jsonschema",
+  "name": "@Manu1400/eslint-plugin-jsonschema",
   "version": "0.3.0",
   "description": "eslint plugin for jsonschema",
   "keywords": [
