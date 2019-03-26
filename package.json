@@ -12,7 +12,8 @@
   "scripts": {
     "build": "rm -r lib || true && babel src -d lib",
     "lint": "eslint src",
-    "test": "npm run-script build && jest tests/** --verbose",
+    "test": "eslint src && jest",
+    "test:coverage": "jest --coverage --verbose",
     "test:watch": "SOURCE_DIR=src mocha tests --watch --recursive --require babel-register tests"
   },
   "dependencies": {
@@ -32,6 +33,9 @@
     "eslint": "~5.15.3",
     "esprima": "^4.0.1",
     "jest": "^24.5.0"
+  },
+  "optionalPeerDependencies": {
+    "assert": "1.4.1"
   },
   "engines": {
     "node": ">=5"
