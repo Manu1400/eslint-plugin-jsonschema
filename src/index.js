@@ -1,12 +1,10 @@
 "use strict"
 
-import { wrapJson } from "./util"
+const { wrapJson } = require("./util")
 
-import requireIndex from "requireindex"
+const requireIndex = require("requireindex")
 
-export const rules = requireIndex(__dirname + "/rules")
-
-export const processors = {
+const processors = {
   ".json": {
     preprocess: (text, fileName) => {
       return [ wrapJson(text) ]
@@ -15,4 +13,9 @@ export const processors = {
       return messages[0]
     }
   }
+}
+
+module.exports = {
+  rules: requireIndex(__dirname + "/rules"),
+  processors
 }

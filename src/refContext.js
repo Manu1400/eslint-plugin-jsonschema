@@ -1,11 +1,11 @@
-import fs          from "fs"
-import jsonpointer from "jsonpointer"
+const { readdirSync, statSync, readFileSync } = require("fs")
+const { get } = require("jsonpointer")
 
 function iterateDirectory(dir, cb) {
-  const paths = fs.readdirSync(dir);
+  const paths = readdirSync(dir);
   for (let path of paths) {
     path = `${dir}/${path}`;
-    const stat = fs.statSync(path);
+    const stat = statSync(path);
     if (stat.isDirectory()) {
       iterateDirectory(path, cb);
     } else {
@@ -36,7 +36,7 @@ class RefContext {
     for (const file of files) {
       let schema;
       try {
-        schema = JSON.parse(fs.readFileSync(file));
+        schema = JSON.parse(readFileSync(file));
       } catch (e) {
         // skip
         continue;
@@ -72,9 +72,8 @@ class RefContext {
     const schema = this.schemaMap[id];
     if (!schema) return false;
 
-    return jsonpointer.get(schema, pointer) !== undefined;
+    return get(schema, pointer) !== undefined;
   }
 }
 
-
-export default new RefContext();
+module.exports = new RefContext()

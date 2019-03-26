@@ -1,17 +1,8 @@
 "use strict"
 
-import { unwrapJson } from "../util"
+const { unwrapJson } = require("../util")
 
-export const meta = {
-  docs: {
-    description: "check schema is valid json",
-    category: "json",
-    recommended: true
-  },
-  fixable: null,
-}
-
-export const create = context => {
+const create = context => {
   let json = unwrapJson(context.getSourceCode().getText())
 
   try {
@@ -34,11 +25,15 @@ export const create = context => {
         let oldLength = length
         length += line.length + 1 // "\n"
         if (length > position) {
+          const start = {
+            line: i + 1,
+            column: position - oldLength
+          }
           context.report({
             message: err.message,
             loc: {
-              start: { line: i + 1, column: position - oldLength },
-              end:   { line: i + 1, column: position - oldLength }
+              start,
+              end: start
             }
           })
           return true
@@ -48,4 +43,17 @@ export const create = context => {
   }
 
   return {}
+}
+
+module.exports = {
+  meta: {
+    docs: {
+      description: "check schema is valid json",
+      category: "json",
+      recommended: true
+    },
+    fixable: null,
+    schema: []
+  },
+  create
 }

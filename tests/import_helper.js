@@ -1,12 +1,19 @@
 "use strict"
 
-import requireIndex from "requireindex"
+const requireIndex = require("requireindex")
 
 // npm run test:watch tests against es6
 let dir = process.env["SOURCE_DIR"] || "lib"
 
-export const ast = require(`../${dir}/ast`)
-export const RefContext = require(`../${dir}/refContext`).default
+const ast = require(`../${dir}/ast`)
+const RefContext = require(`../${dir}/refContext`).default
 
-export const eslintPluginJsonschema = require(`../${dir}`)
-export const rules = requireIndex(__dirname + `/../${dir}/rules`)
+const eslintPluginJsonschema = require(`../${dir}`)
+const rules = requireIndex(__dirname + `/../${dir}/rules`)
+
+module.exports = {
+  ast,
+  RefContext,
+  eslintPluginJsonschema,
+  rules
+}

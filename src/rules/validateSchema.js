@@ -1,33 +1,13 @@
 "use strict"
 
-import { calculateJsonPointer } from "../ast"
-import { unwrapJson }           from "../util"
+const { calculateJsonPointer } = require("../ast")
+const { unwrapJson } = require("../util")
 
-import Ajv from "ajv"
+const Ajv = require("ajv")
 
-import fs  from "fs"
+const { readFileSync } = require("fs")
 
-export const meta = {
-  docs: {
-    description: "check json is valid for jsonschema",
-    category: "jsonschema",
-    recommended: true
-  },
-  // schema: [
-  //   {
-  //     type: "object",
-  //     properties: {
-  //       strict: {
-  //         type: "boolean"
-  //       }
-  //     },
-  //     additionalProperties: false
-  //   }
-  // ],
-  fixable: null,
-}
-
-export const create = context => {
+const create = context => {
   let json = unwrapJson(context.getSourceCode().getText())
 
   let targetSchema
@@ -81,8 +61,8 @@ export const create = context => {
   let validator = new Ajv({ meta: false, allErrors: true, jsonPointers: true })
 
   // add Schema
-  let schema      = JSON.parse(fs.readFileSync(__dirname + "/../../schema/draft-04/schema.json"))
-  let hyperSchema = JSON.parse(fs.readFileSync(__dirname + "/../../schema/draft-04/hyper-schema.json"))
+  let schema      = JSON.parse(readFileSync(__dirname + "/../../schema/draft-04/schema.json"))
+  let hyperSchema = JSON.parse(readFileSync(__dirname + "/../../schema/draft-04/hyper-schema.json"))
   if (options.strict) {
     schema.properties.format    = { type: "string" }
     schema.properties["$ref"]   = { type: "string" }
@@ -120,4 +100,29 @@ export const create = context => {
     ObjectExpression: onNode.bind(null, errors), // array element
     Property:         onNode.bind(null, errors), // object key
   }
+}
+
+const meta = {
+  docs: {
+    description: "check json is valid for jsonschema",
+    category: "jsonschema",
+    recommended: true,
+  },
+  // schema: [
+  //   {
+  //     type: "object",
+  //     properties: {
+  //       strict: {
+  //         type: "boolean"
+  //       }
+  //     },
+  //     additionalProperties: false
+  //   }
+  // ],
+  fixable: null,
+}
+
+module.exports = {
+  meta,
+  create
 }

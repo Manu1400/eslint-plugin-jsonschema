@@ -35,7 +35,5 @@ Add `jsonschema` to the plugins section of your `.eslintrc` configuration file. 
 }
 ```
 
-
-
-
-
+TODO: add badge
+size: https://bundlephobia.com/result?p=eslint-plugin-jsonschema@0.2.0

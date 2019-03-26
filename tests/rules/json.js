@@ -1,9 +1,9 @@
 "use strict"
 
-import { rules } from "../import_helper"
+const { rules } = require("../import_helper")
 let rule = rules.json
 
-import { RuleTester } from "eslint"
+const { RuleTester } = require("eslint")
 let ruleTester = new RuleTester()
 
 let validJsons = [

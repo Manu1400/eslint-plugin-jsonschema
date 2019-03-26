@@ -1,21 +1,12 @@
 "use strict"
 
-import { unwrapJson } from "../util"
-import RefContext     from "../refContext"
-import jsonpointer    from "jsonpointer"
+const { unwrapJson } = require("../util")
+const RefContext     = require("../refContext")
+const jsonpointer    = require("jsonpointer")
 
-export const meta = {
-  docs: {
-    description: "check $ref is valid",
-    category: "ref",
-    recommended: true,
-  },
-  fixable: null,
-}
-
-export const create = context => {
+const create = context => {
   let json = unwrapJson(context.getSourceCode().getText())
-  
+
   let targetSchema
   try {
     targetSchema = JSON.parse(json);
@@ -48,4 +39,17 @@ export const create = context => {
   return {
     Property: onProperty,
   }
+}
+
+module.exports = {
+  meta: {
+    docs: {
+      description: "check $ref is valid",
+      category: "ref",
+      recommended: true,
+    },
+    fixable: null,
+    schema: []
+  },
+  create
 }
