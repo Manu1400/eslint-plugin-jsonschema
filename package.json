@@ -16,7 +16,7 @@
     "test:watch": "SOURCE_DIR=src mocha tests --watch --recursive --require babel-register tests"
   },
   "dependencies": {
-    "ajv": "^6.10.0",
+    "ajv": "^4.11.8",
     "esprima": "^4.0.1",
     "jsonpointer": "^4.0.1",
     "requireindex": "^1.2.0"
